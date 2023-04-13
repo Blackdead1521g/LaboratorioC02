@@ -6,9 +6,9 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
   -cn -h+dist/default/production\LabC02.X.production.sym \
   --cmf=dist/default/production\LabC02.X.production.cmf -z -Q16F887 \
-  -oC:\Users\Mining\AppData\Local\Temp\xcAsbmc.4 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\Black\AppData\Local\Temp\xcAsgjk.4 --defsym=__MPLAB_BUILD=1 \
   --fixupoverflow=error -Mdist/default/production/LabC02.X.production.map \
-  --md=C:\Users\Mining\AppData\Local\Temp\xcAsbmc.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\Black\AppData\Local\Temp\xcAsgjk.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
@@ -19,7 +19,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\Mining\AppData\Local\Temp\xcAsbmc.o \
+  -pfunctab=ENTRY -k C:\Users\Black\AppData\Local\Temp\xcAsgjk.o \
   dist/default/production\LabC02.X.production.o 
 
 Object code version is 3.11
@@ -29,7 +29,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Mining\AppData\Local\Temp\xcAsbmc.o
+C:\Users\Black\AppData\Local\Temp\xcAsgjk.o
                 end_init                             10       10        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -39,11 +39,11 @@ dist/default/production\LabC02.X.production.o
                 intentry                              4        4        C        8       0
                 config                             2007     2007        2        0       4
                 idloc                              2000     2000        4        0       5
-                text16                             15C4     15C4       22     2B88       0
+                text16                             15FB     15FB       22     2BF6       0
                 text15                              C5A      C5A      1D3     18B4       0
-                text14                              81D      81D       27     103A       0
+                text14                             161D     161D       27     2C3A       0
                 text13                              36C      36C      345        8       0
-                text12                             15E6     15E6       78     2BCC       0
+                text12                             166D     166D       78     2CDA       0
                 text11                              86D      86D       9D     10DA       0
                 text10                              90A      90A       B8     1214       0
                 text9                               6B1      6B1      138        8       0
@@ -51,10 +51,10 @@ dist/default/production\LabC02.X.production.o
                 text7                               E2D      E2D      1D3     1C5A       0
                 text6                              1772     1772       8E     2EE4       0
                 text5                              16E5     16E5       8D     2DCA       0
-                text4                               844      844       29     1088       0
+                text4                              1644     1644       29     2C88       0
                 text3                                27       27      345        8       0
                 text2                               A7C      A7C       DD     14F8       0
-                text1                              165E     165E       87     2CBC       0
+                text1                               806      806       67     100C       0
                 maintext                            B59      B59      101     16B2       0
                 cstackBANK0                          20       20       4F       20       1
                 cstackCOMMON                         70       70        E       70       1
@@ -69,11 +69,11 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                13       13       14         0
                 intentry                              4        4        C         0
                 reset_vec                             0        0        3         0
-                text16                             15C4     15C4       22         0
+                text16                             15FB     15FB       22         0
                 text15                              C5A      C5A      1D3         0
-                text14                              81D      81D       27         0
+                text14                             161D     161D       27         0
                 text13                              36C      36C      345         0
-                text12                             15E6     15E6       78         0
+                text12                             166D     166D       78         0
                 text11                              86D      86D       9D         0
                 text10                              90A      90A       B8         0
                 text9                               6B1      6B1      138         0
@@ -81,10 +81,10 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text7                               E2D      E2D      1D3         0
                 text6                              1772     1772       8E         0
                 text5                              16E5     16E5       8D         0
-                text4                               844      844       29         0
+                text4                              1644     1644       29         0
                 text3                                27       27      345         0
                 text2                               A7C      A7C       DD         0
-                text1                              165E     165E       87         0
+                text1                               806      806       67         0
                 maintext                            B59      B59      101         0
 
         CLASS   STRCODE        
@@ -144,8 +144,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 cstackBANK1                    0000A0  00004C  0000EC        A0       1  BANK1       1
                 cstackBANK3                    000190  00001C  0001AC       190       1  BANK3       1
-                text14                         00081D  000027  000844      103A       0  CODE        2
-                text4                          000844  000029  00086D      1088       0  CODE        2
+                text1                          000806  000067  00086D      100C       0  CODE        2
                 text11                         00086D  00009D  00090A      10DA       0  CODE        2
                 text10                         00090A  0000B8  0009C2      1214       0  CODE        2
                 text8                          0009C2  0000BA  000A7C      1384       0  CODE        2
@@ -153,9 +152,10 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 maintext                       000B59  000101  000C5A      16B2       0  CODE        2
                 text15                         000C5A  0001D3  000E2D      18B4       0  CODE        2
                 text7                          000E2D  0001D3  001000      1C5A       0  CODE        2
-                text16                         0015C4  000022  0015E6      2B88       0  CODE        2
-                text12                         0015E6  000078  00165E      2BCC       0  CODE        2
-                text1                          00165E  000087  0016E5      2CBC       0  CODE        2
+                text16                         0015FB  000022  00161D      2BF6       0  CODE        2
+                text14                         00161D  000027  001644      2C3A       0  CODE        2
+                text4                          001644  000029  00166D      2C88       0  CODE        2
+                text12                         00166D  000078  0016E5      2CDA       0  CODE        2
                 text5                          0016E5  00008D  001772      2DCA       0  CODE        2
                 text6                          001772  00008E  001800      2EE4       0  CODE        2
 
@@ -168,17 +168,17 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            01AC-01EF             44           1
         CODE             0003-0003              1           2
-                         07E9-081C             17
-                         1000-15C3            5C4
+                         07E9-0805             17
+                         1000-15FA            5FB
                          1800-1FFF            800
         CONST            0003-0003              1           2
-                         07E9-081C             17
-                         1000-15C3            100
+                         07E9-0805             17
+                         1000-15FA            100
                          1800-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         07E9-081C             17
-                         1000-15C3            100
+                         07E9-0805             17
+                         1000-15FA            100
                          1800-1FFF            100
         RAM              006F-006F              1           1
                          00EC-00EF              4
@@ -189,12 +189,12 @@ UNUSED ADDRESS RANGES
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STRCODE          0003-0003              1           2
-                         07E9-081C             34
-                         1000-15C3            5C4
+                         07E9-0805             1D
+                         1000-15FA            5FB
                          1800-1FFF            800
         STRING           0003-0003              1           2
-                         07E9-081C             17
-                         1000-15C3            100
+                         07E9-0805             17
+                         1000-15FA            100
                          1800-1FFF            100
 
                                   Symbol Table
@@ -323,7 +323,7 @@ __Ltext                   text         0000
 __S0                      (abs)        1800
 __S1                      (abs)        01AC
 __S3                      (abs)        0000
-__Umul8_16                text4        0844
+__Umul8_16                text4        1644
 __Umul8_16@multiplicand   cstackBANK1  00A4
 __Umul8_16@multiplier     cstackBANK1  00AC
 __Umul8_16@product        cstackBANK1  00A8
@@ -362,21 +362,21 @@ ___xxtofl@sign            cstackBANK1  00AC
 ___xxtofl@val             cstackBANK1  00A4
 __end_of_PWM_config       text5        1772
 __end_of_PWM_duty         text2        0B59
-__end_of__Umul8_16        text4        086D
+__end_of__Umul8_16        text4        166D
 __end_of___fldiv          text7        1000
 __end_of___flmul          text3        036C
 __end_of___fltol          text6        1800
 __end_of___xxtofl         text8        0A7C
 __end_of__initialization  cinit        0023
-__end_of_duty_cicle       text16       15E6
+__end_of_duty_cicle       text16       161D
 __end_of_isr              text9        07E9
 __end_of_main             maintext     0C5A
-__end_of_setup            text1        16E5
+__end_of_setup            text1        086D
 __end_ofi1_PWM_duty       text11       090A
-__end_ofi1__Umul8_16      text14       0844
+__end_ofi1__Umul8_16      text14       1644
 __end_ofi1___fldiv        text15       0E2D
 __end_ofi1___flmul        text13       06B1
-__end_ofi1___fltol        text12       165E
+__end_ofi1___fltol        text12       16E5
 __end_ofi1___xxtofl       text10       09C2
 __initialization          cinit        0013
 __pbssBANK1               bssBANK1     00E8
@@ -387,31 +387,31 @@ __pcstackBANK3            cstackBANK3  0190
 __pcstackCOMMON           cstackCOMMON 0070
 __pintentry               intentry     0004
 __pmaintext               maintext     0B59
-__ptext1                  text1        165E
+__ptext1                  text1        0806
 __ptext10                 text10       090A
 __ptext11                 text11       086D
-__ptext12                 text12       15E6
+__ptext12                 text12       166D
 __ptext13                 text13       036C
-__ptext14                 text14       081D
+__ptext14                 text14       161D
 __ptext15                 text15       0C5A
-__ptext16                 text16       15C4
+__ptext16                 text16       15FB
 __ptext2                  text2        0A7C
 __ptext3                  text3        0027
-__ptext4                  text4        0844
+__ptext4                  text4        1644
 __ptext5                  text5        16E5
 __ptext6                  text6        1772
 __ptext7                  text7        0E2D
 __ptext8                  text8        09C2
 __ptext9                  text9        06B1
 _dutyPot                  bssBANK1     00E8
-_duty_cicle               text16       15C4
+_duty_cicle               text16       15FB
 _i                        bssBANK1     00EA
 _isr                      text9        06B1
 _isr$1218                 cstackBANK1  00A0
 _main                     maintext     0B59
 _potMapeado               bssBANK3     01A6
 _potenciometro            bssBANK3     01AA
-_setup                    text1        165E
+_setup                    text1        0806
 btemp                     (abs)        007E
 duty_cicle@ciclo          cstackCOMMON 0070
 end_of_initialization     cinit        0023
@@ -419,7 +419,7 @@ i1PWM_duty@canal          cstackBANK0  0065
 i1PWM_duty@duty           cstackBANK0  005E
 i1PWM_duty@particion      cstackBANK0  0066
 i1_PWM_duty               text11       086D
-i1__Umul8_16              text14       081D
+i1__Umul8_16              text14       161D
 i1__Umul8_16@multiplicand cstackCOMMON 0070
 i1__Umul8_16@multiplier   cstackCOMMON 0078
 i1__Umul8_16@product      cstackCOMMON 0074
@@ -442,7 +442,7 @@ i1___flmul@grs            cstackBANK0  0048
 i1___flmul@prod           cstackBANK0  004E
 i1___flmul@sign           cstackBANK0  0047
 i1___flmul@temp           cstackBANK0  0052
-i1___fltol                text12       15E6
+i1___fltol                text12       166D
 i1___fltol@exp1           cstackBANK0  005D
 i1___fltol@f1             cstackBANK0  0054
 i1___fltol@sign1          cstackBANK0  005C
@@ -490,15 +490,15 @@ C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c estimated size: 467
 
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
-		__Umul8_16     		CODE           	0844	0000	41
+		__Umul8_16     		CODE           	1644	0000	41
 
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c estimated size: 41
 
 shared
 		i1_PWM_duty    		CODE           	086D	0000	157
-		i1__Umul8_16   		CODE           	081D	0000	39
+		i1__Umul8_16   		CODE           	161D	0000	39
 		i1___fldiv     		CODE           	0C5A	0000	467
-		i1___fltol     		CODE           	15E6	0000	120
+		i1___fltol     		CODE           	166D	0000	120
 		__initialization		CODE           	0013	0000	16
 		i1___flmul     		CODE           	036C	0000	837
 		i1___xxtofl    		CODE           	090A	0000	184
@@ -508,10 +508,10 @@ shared estimated size: 1820
 PostLabC02.c
 		_main          		CODE           	0B59	0000	257
 		_isr           		CODE           	06B1	0000	312
-		_duty_cicle    		CODE           	15C4	0000	34
-		_setup         		CODE           	165E	0000	135
+		_duty_cicle    		CODE           	15FB	0000	34
+		_setup         		CODE           	0806	0000	103
 
-PostLabC02.c estimated size: 738
+PostLabC02.c estimated size: 706
 
 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
 		___xxtofl      		CODE           	09C2	0000	186

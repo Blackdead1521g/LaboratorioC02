@@ -4,11 +4,11 @@
  * Compilador: XC8(v2.40), MPLABX V6.05
  * 
  * 
- * Programa: Convertir una señal analógica a digital
- * Hardware: Potenciómetros en RA0 Y RA5; 3 displays en RD0, RD1 Y RD2
+ * Programa: Utilizar los PWM del pic y crear un nuevo PWM para la intensidad de un led
+ * Hardware: Potenciómetros en RA0, RA2 y RA5; 2 servo motores en RC1 y RC2, 1 led en RC3
  * 
- * Creado: 27 de marzo, 2023
- * Última modificación: 30 de marzo, 2023
+ * Creado: 10 de abril, 2023
+ * Última modificación: 13 de abril, 2023
  */
 // CONFIG1
 #pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -37,10 +37,10 @@
 
 #define _tmr0_value 98 // valor de tmr0 para que la interrupción sea cada 20ms 
 #define _XTAL_FREQ 4000000 //definimos la frecuencia del oscilador
-#define canal 1 //Canal 2 del PWM
+#define canal 2 //Canal 1 del PWM
 #define periodo 0.004f //Periodo de 4 ms
 #define periodoTotal 20 //Tendremos un periodo de 20 ms para el led
-#define ciclo_trabajo 0.0025f //Ciclo de trabajo de 1 ms
+#define ciclo_trabajo 0.0025f //Ciclo de trabajo de 2 ms
 #define LED_PIN PORTCbits.RC3 /// usar e0 como salida del led
 
 //---------------------Variables---------------------------------
@@ -67,12 +67,10 @@ void __interrupt() isr(void) {
     }
     if (PIR1bits.ADIF) { //Si se activa la bandera de interrupcion del ADC
         if (ADCON0bits.CHS == 0b0000){ //Si está en ADC AN0
-            PWM_duty(1, ciclo_trabajo*(ADRESH/255.0f));
-            //CCPR1L = ((ADRESH >> 1) + 124); //Le cargamos al CCPR1L el valor del potenciometro que se encuentre en el canal AN0
+            PWM_duty(1, ciclo_trabajo*(ADRESH/255.0f)); //Llamamos a nuestra función de ciclo de trabajo
         }
         else if (ADCON0bits.CHS == 0b0100){ //Si está en ADC AN4
-            PWM_duty(2, ciclo_trabajo*(ADRESH/255.0f));
-            //CCPR2L = ((ADRESH >> 1) + 124); //Le cargamos al CCPR2L el valor del potenciometro que se encuentre en el canal AN4
+            PWM_duty(2, ciclo_trabajo*(ADRESH/255.0f)); //Llamamos a nuestra función de ciclo de trabajo
         }
         else if (ADCON0bits.CHS == 0b0010){//Si está en ADC AN2
             potenciometro = ADRESH; //Asignar a la variable potenciometro el valor del potenciometro del PORTA2
@@ -87,8 +85,8 @@ void main(void) {
     setup (); 
     ADCON0bits.GO = 1; //Activamos la lectura del ADC
     while(1){ //loop forever
-        potMapeado = (0.39215686f*potenciometro)/100; //Esta variable contendrá el valor que tenga el potenciometro en un rango (0-100) en poercentaje
-        dutyPot = (int)(periodoTotal * potMapeado); //En el ciclo de trabajo ingrsamos el porcantaje del potenciometro multiplicado por el total del periodo 
+        potMapeado = (0.39215686f*potenciometro)/100; //Esta variable contendrá el valor que tenga el potenciometro en un rango (0-100) en porcentaje
+        dutyPot = (int)(periodoTotal * potMapeado); //En el ciclo de trabajo ingresamos el porcentaje del potenciometro multiplicado por el total del periodo 
                                                //para que vaya incrementando/decrementando el ciclo de trabajo conforme se modifique el potenciometro
         PORTB = (unsigned char)dutyPot; //Presentamos el valor del ciclo de trabajo en el PUERTOB para verificar el valor del ciclo conforme se varía el potenciometro
         if (ADCON0bits.GO == 0) { // Si la lectura del ADC se desactiva
@@ -174,9 +172,7 @@ void setup(void){
      __delay_ms(1); 
     
     //////Configuración PWM
-    PWM_config(1, periodo);
-    PWM_config(2, periodo);
-    PWM_duty(1, ciclo_trabajo);
-    PWM_duty(2, ciclo_trabajo); 
+    PWM_config(canal, periodo);
+    PWM_duty(canal, ciclo_trabajo);
     return;
 }

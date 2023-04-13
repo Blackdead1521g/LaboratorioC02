@@ -1,6 +1,6 @@
 /* 
  * File:   PWM_SERVO.h
- * Author: Black
+ * Author: Kevin Alarcón
  *
  * Created on 10 de abril de 2023, 05:41 PM
  */

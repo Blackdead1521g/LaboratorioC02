@@ -10,14 +10,14 @@
  Intel Hex-file ranges:
   0h - 5h		(dist/default/production\LabC02.X.production.hex)
   8h - FD1h		(dist/default/production\LabC02.X.production.hex)
-  103Ah - 1FFFh		(dist/default/production\LabC02.X.production.hex)
-  2B88h - 2FFFh		(dist/default/production\LabC02.X.production.hex)
+  100Ch - 1FFFh		(dist/default/production\LabC02.X.production.hex)
+  2BF6h - 2FFFh		(dist/default/production\LabC02.X.production.hex)
   4000h - 4007h		(dist/default/production\LabC02.X.production.hex)
   400Eh - 4011h		(dist/default/production\LabC02.X.production.hex)
  Unused ranges:
   6h - 7h
-  FD2h - 1039h
-  2000h - 2B87h
+  FD2h - 100Bh
+  2000h - 2BF5h
   3000h - 3FFFh
   4008h - 400Dh
 
@@ -283,7 +283,10 @@
 00000FC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000FD0 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-00001030 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
+00001000 | -- -- -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1
+00001010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001040 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001050 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001060 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -537,14 +540,7 @@
 00001FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
-00002B80 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
-00002B90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002BA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002BB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002BC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002BD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002BE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002BF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002BF0 | -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002C00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002C10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002C20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
