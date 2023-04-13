@@ -424,22 +424,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _duty `f ~T0 @X0 1 r2 ]
 [f ]
 "35
-[; ;PWM_SERVO.c: 35:     char particion = (char)(duty/((1.0f/4000000)*16));
-[v _particion `uc ~T0 @X0 1 a ]
-[e = _particion -> / _duty * / -> .1.0 `f -> -> 4000000 `l `f -> -> 16 `i `f `uc ]
+[; ;PWM_SERVO.c: 35:     int particion = (int)(4*duty/((1.0f/4000000)*16));
+[v _particion `i ~T0 @X0 1 a ]
+[e = _particion -> / * -> -> 4 `i `f _duty * / -> .1.0 `f -> -> 4000000 `l `f -> -> 16 `i `f `i ]
 "36
 [; ;PWM_SERVO.c: 36:     if (canal == 1){
 [e $ ! == -> _canal `i -> 1 `i 153  ]
 {
 "37
-[; ;PWM_SERVO.c: 37:         CCPR1L = (particion >> 2);
-[e = _CCPR1L -> >> -> _particion `i -> 2 `i `uc ]
+[; ;PWM_SERVO.c: 37:         CCPR1L = (char)(particion >> 2);
+[e = _CCPR1L -> -> >> _particion -> 2 `i `uc `uc ]
 "38
 [; ;PWM_SERVO.c: 38:         CCP1CONbits.DC1B0 = (particion&(0b1));
-[e = . . _CCP1CONbits 1 4 -> & -> _particion `i -> 1 `i `uc ]
+[e = . . _CCP1CONbits 1 4 -> & _particion -> 1 `i `uc ]
 "39
 [; ;PWM_SERVO.c: 39:         CCP1CONbits.DC1B1 = ((particion>>1) &(0b1));
-[e = . . _CCP1CONbits 1 5 -> & >> -> _particion `i -> 1 `i -> 1 `i `uc ]
+[e = . . _CCP1CONbits 1 5 -> & >> _particion -> 1 `i -> 1 `i `uc ]
 "40
 [; ;PWM_SERVO.c: 40:     }
 }
@@ -450,14 +450,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _canal `i -> 2 `i 155  ]
 {
 "42
-[; ;PWM_SERVO.c: 42:         CCPR2L = (particion >> 2);
-[e = _CCPR2L -> >> -> _particion `i -> 2 `i `uc ]
+[; ;PWM_SERVO.c: 42:         CCPR2L = (char)(particion >> 2);
+[e = _CCPR2L -> -> >> _particion -> 2 `i `uc `uc ]
 "43
 [; ;PWM_SERVO.c: 43:         CCP2CONbits.DC2B0 = (particion&(0b1));
-[e = . . _CCP2CONbits 0 1 -> & -> _particion `i -> 1 `i `uc ]
+[e = . . _CCP2CONbits 0 1 -> & _particion -> 1 `i `uc ]
 "44
 [; ;PWM_SERVO.c: 44:         CCP2CONbits.DC2B1 = ((particion>>1) &(0b1));
-[e = . . _CCP2CONbits 0 2 -> & >> -> _particion `i -> 1 `i -> 1 `i `uc ]
+[e = . . _CCP2CONbits 0 2 -> & >> _particion -> 1 `i -> 1 `i `uc ]
 "45
 [; ;PWM_SERVO.c: 45:     }
 }

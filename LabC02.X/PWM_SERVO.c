@@ -32,14 +32,14 @@ void PWM_config(char canal, float periodo_ms){
     return;
 }
 void PWM_duty(char canal, float duty){
-    char particion = (char)(duty/((1.0f/_XTAL_FREQ)*16));
+    int particion = (int)(4*duty/((1.0f/_XTAL_FREQ)*16));
     if (canal == 1){
-        CCPR1L = (particion >> 2); //Lo corremos dos bits  a la derecha para ingresarle los 8 bits más significativos
+        CCPR1L = (char)(particion >> 2); //Lo corremos dos bits  a la derecha para ingresarle los 8 bits más significativos
         CCP1CONbits.DC1B0 = (particion&(0b1)); //Hacemos un and 
         CCP1CONbits.DC1B1 = ((particion>>1) &(0b1)); //Hacemos un and
     }
     else if (canal == 2){
-        CCPR2L = (particion >> 2); //Lo corremos dos bits  a la derecha para ingresarle los 8 bits más significativos
+        CCPR2L = (char)(particion >> 2); //Lo corremos dos bits  a la derecha para ingresarle los 8 bits más significativos
         CCP2CONbits.DC2B0 = (particion&(0b1)); //Hacemos un and }
         CCP2CONbits.DC2B1 = ((particion>>1) &(0b1)); //Hacemos un and
     }

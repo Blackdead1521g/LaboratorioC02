@@ -274,66 +274,12 @@
 {
 [v PWM_duty@canal canal `uc  1 a 1 wreg ]
 "35
-[v PWM_duty@particion particion `uc  1 a 1 3 ]
+[v PWM_duty@particion particion `i  1 a 2 16 ]
 "34
 [v PWM_duty@canal canal `uc  1 a 1 wreg ]
-[v PWM_duty@duty duty `f  1 p 4 76 ]
-[v PWM_duty@canal canal `uc  1 a 1 2 ]
+[v PWM_duty@duty duty `f  1 p 4 8 ]
+[v PWM_duty@canal canal `uc  1 a 1 15 ]
 "47
-} 0
-"5
-[v _PWM_config PWM_config `(v  1 e 1 0 ]
-{
-[v PWM_config@canal canal `uc  1 a 1 wreg ]
-[v PWM_config@canal canal `uc  1 a 1 wreg ]
-[v PWM_config@periodo_ms periodo_ms `f  1 p 4 76 ]
-[v PWM_config@canal canal `uc  1 a 1 0 ]
-"33
-} 0
-"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 75 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 74 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 66 ]
-"70
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
-{
-"21
-[v ___fldiv@grs grs `ul  1 a 4 60 ]
-"22
-[v ___fldiv@rem rem `ul  1 a 4 53 ]
-"20
-[v ___fldiv@new_exp new_exp `i  1 a 2 58 ]
-"19
-[v ___fldiv@aexp aexp `uc  1 a 1 65 ]
-"18
-[v ___fldiv@bexp bexp `uc  1 a 1 64 ]
-"16
-[v ___fldiv@sign sign `uc  1 a 1 57 ]
-"8
-[v ___fldiv@a a `d  1 p 4 40 ]
-[v ___fldiv@b b `d  1 p 4 44 ]
-"185
-} 0
-"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 10 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 9 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 0 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 8 ]
-"44
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
@@ -342,22 +288,22 @@
 "13
 [s S811 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
 [u S814 . 4 `l 1 i 4 0 `d 1 f 4 0 `S806 1 fAsBytes 4 0 `S811 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S814  1 a 4 34 ]
+[v ___flmul@prod prod `S814  1 a 4 38 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 28 ]
+[v ___flmul@grs grs `ul  1 a 4 32 ]
 [s S883 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
 [u S886 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S883 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S886  1 a 2 38 ]
+[v ___flmul@temp temp `S886  1 a 2 42 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 33 ]
+[v ___flmul@bexp bexp `uc  1 a 1 37 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 32 ]
+[v ___flmul@aexp aexp `uc  1 a 1 36 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 27 ]
+[v ___flmul@sign sign `uc  1 a 1 31 ]
 "8
-[v ___flmul@b b `d  1 p 4 14 ]
-[v ___flmul@a a `d  1 p 4 18 ]
+[v ___flmul@b b `d  1 p 4 18 ]
+[v ___flmul@a a `d  1 p 4 22 ]
 "205
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
@@ -365,14 +311,68 @@
 {
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
 "6
-[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
+[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 10 ]
 "5
-[v __Umul8_16@product product `ui  1 a 2 4 ]
+[v __Umul8_16@product product `ui  1 a 2 8 ]
 "4
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 4 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 12 ]
 "60
+} 0
+"5 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PWM_SERVO.c
+[v _PWM_config PWM_config `(v  1 e 1 0 ]
+{
+[v PWM_config@canal canal `uc  1 a 1 wreg ]
+[v PWM_config@canal canal `uc  1 a 1 wreg ]
+[v PWM_config@periodo_ms periodo_ms `f  1 p 4 8 ]
+[v PWM_config@canal canal `uc  1 a 1 12 ]
+"33
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 71 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 70 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 0 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 64 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 57 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 62 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 69 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 68 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 61 ]
+"8
+[v ___fldiv@a a `d  1 p 4 44 ]
+[v ___fldiv@b b `d  1 p 4 48 ]
+"185
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 14 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 13 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 4 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 12 ]
+"44
 } 0
 "62 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PostLabC02.c
 [v _isr isr `II(v  1 e 1 0 ]
@@ -393,6 +393,28 @@
 "15
 [v i1___xxtofl@sign sign `uc  1 a 1 8 ]
 "44
+} 0
+"34 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PWM_SERVO.c
+[v i1_PWM_duty PWM_duty `(v  1 e 1 0 ]
+{
+[v i1PWM_duty@canal canal `uc  1 a 1 wreg ]
+"35
+[v i1PWM_duty@particion particion `i  1 a 2 70 ]
+"34
+[v i1PWM_duty@canal canal `uc  1 a 1 wreg ]
+[v i1PWM_duty@duty duty `f  1 p 4 62 ]
+[v i1PWM_duty@canal canal `uc  1 a 1 69 ]
+"47
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
+[v i1___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v i1___fltol@exp1 exp1 `uc  1 a 1 61 ]
+[v i1___fltol@sign1 sign1 `uc  1 a 1 60 ]
+"43
+[v i1___fltol@f1 f1 `d  1 p 4 52 ]
+"70
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v i1___flmul __flmul `(d  1 e 4 0 ]
@@ -432,28 +454,6 @@
 [v i1__Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
 [v i1__Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
 "60
-} 0
-"34 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PWM_SERVO.c
-[v i1_PWM_duty PWM_duty `(v  1 e 1 0 ]
-{
-[v i1PWM_duty@canal canal `uc  1 a 1 wreg ]
-"35
-[v i1PWM_duty@particion particion `uc  1 a 1 59 ]
-"34
-[v i1PWM_duty@canal canal `uc  1 a 1 wreg ]
-[v i1PWM_duty@duty duty `f  1 p 4 52 ]
-[v i1PWM_duty@canal canal `uc  1 a 1 58 ]
-"47
-} 0
-"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
-[v i1___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v i1___fltol@exp1 exp1 `uc  1 a 1 35 ]
-[v i1___fltol@sign1 sign1 `uc  1 a 1 34 ]
-"43
-[v i1___fltol@f1 f1 `d  1 p 4 26 ]
-"70
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
 [v i1___fldiv __fldiv `(d  1 e 4 0 ]
