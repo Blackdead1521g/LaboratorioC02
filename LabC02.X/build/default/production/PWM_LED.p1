@@ -1,0 +1,76 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"3 PWM_LED.c
+[; ;PWM_LED.c: 3: float Mapeo_Pot(int valor_potenciometro){
+[v _Mapeo_Pot `(f ~T0 @X0 1 ef1`i ]
+{
+[e :U _Mapeo_Pot ]
+[v _valor_potenciometro `i ~T0 @X0 1 r1 ]
+[f ]
+"4
+[; ;PWM_LED.c: 4:     return ((0.3921568627*valor_potenciometro)/100);
+[e ) -> / * .0.3921568627 -> _valor_potenciometro `d -> -> 100 `i `d `f ]
+[e $UE 1  ]
+"5
+[; ;PWM_LED.c: 5: }
+[e :UE 1 ]
+}
+"7
+[; ;PWM_LED.c: 7: int Duty_Pot(int periodo, float PotMapeado){
+[v _Duty_Pot `(i ~T0 @X0 1 ef2`i`f ]
+{
+[e :U _Duty_Pot ]
+[v _periodo `i ~T0 @X0 1 r1 ]
+[v _PotMapeado `f ~T0 @X0 1 r2 ]
+[f ]
+"8
+[; ;PWM_LED.c: 8:     return (periodo * PotMapeado);
+[e ) -> * -> _periodo `f _PotMapeado `i ]
+[e $UE 2  ]
+"9
+[; ;PWM_LED.c: 9: }
+[e :UE 2 ]
+}
+"11
+[; ;PWM_LED.c: 11: void Duty_Cicle(int i, int ciclo, char LED_PIN){
+[v _Duty_Cicle `(v ~T0 @X0 1 ef3`i`i`uc ]
+{
+[e :U _Duty_Cicle ]
+[v _i `i ~T0 @X0 1 r1 ]
+[v _ciclo `i ~T0 @X0 1 r2 ]
+[v _LED_PIN `uc ~T0 @X0 1 r3 ]
+[f ]
+"12
+[; ;PWM_LED.c: 12:     i++;
+[e ++ _i -> 1 `i ]
+"13
+[; ;PWM_LED.c: 13:     if (i <= ciclo){
+[e $ ! <= _i _ciclo 4  ]
+{
+"14
+[; ;PWM_LED.c: 14:         LED_PIN = 1;
+[e = _LED_PIN -> -> 1 `i `uc ]
+"15
+[; ;PWM_LED.c: 15:     }
+}
+[e $U 5  ]
+"16
+[; ;PWM_LED.c: 16:     else{
+[e :U 4 ]
+{
+"17
+[; ;PWM_LED.c: 17:         LED_PIN = 0;
+[e = _LED_PIN -> -> 0 `i `uc ]
+"18
+[; ;PWM_LED.c: 18:         i = 0;
+[e = _i -> 0 `i ]
+"19
+[; ;PWM_LED.c: 19:     }
+}
+[e :U 5 ]
+"20
+[; ;PWM_LED.c: 20:     return;
+[e $UE 3  ]
+"21
+[; ;PWM_LED.c: 21: }
+[e :UE 3 ]
+}

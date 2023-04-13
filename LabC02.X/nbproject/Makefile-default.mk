@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Lab02_PWM.c
+SOURCEFILES_QUOTED_IF_SPACED=PWM_SERVO.c PostLabC02.c PWM_LED.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Lab02_PWM.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/Lab02_PWM.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/PWM_SERVO.p1 ${OBJECTDIR}/PostLabC02.p1 ${OBJECTDIR}/PWM_LED.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/PWM_SERVO.p1.d ${OBJECTDIR}/PostLabC02.p1.d ${OBJECTDIR}/PWM_LED.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Lab02_PWM.p1
+OBJECTFILES=${OBJECTDIR}/PWM_SERVO.p1 ${OBJECTDIR}/PostLabC02.p1 ${OBJECTDIR}/PWM_LED.p1
 
 # Source Files
-SOURCEFILES=Lab02_PWM.c
+SOURCEFILES=PWM_SERVO.c PostLabC02.c PWM_LED.c
 
 
 
@@ -88,22 +88,54 @@ MP_PROCESSOR_OPTION=16F887
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Lab02_PWM.p1: Lab02_PWM.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/PWM_SERVO.p1: PWM_SERVO.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Lab02_PWM.p1.d 
-	@${RM} ${OBJECTDIR}/Lab02_PWM.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Lab02_PWM.p1 Lab02_PWM.c 
-	@-${MV} ${OBJECTDIR}/Lab02_PWM.d ${OBJECTDIR}/Lab02_PWM.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/Lab02_PWM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/PWM_SERVO.p1.d 
+	@${RM} ${OBJECTDIR}/PWM_SERVO.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PWM_SERVO.p1 PWM_SERVO.c 
+	@-${MV} ${OBJECTDIR}/PWM_SERVO.d ${OBJECTDIR}/PWM_SERVO.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PWM_SERVO.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/PostLabC02.p1: PostLabC02.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PostLabC02.p1.d 
+	@${RM} ${OBJECTDIR}/PostLabC02.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PostLabC02.p1 PostLabC02.c 
+	@-${MV} ${OBJECTDIR}/PostLabC02.d ${OBJECTDIR}/PostLabC02.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PostLabC02.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/PWM_LED.p1: PWM_LED.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PWM_LED.p1.d 
+	@${RM} ${OBJECTDIR}/PWM_LED.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PWM_LED.p1 PWM_LED.c 
+	@-${MV} ${OBJECTDIR}/PWM_LED.d ${OBJECTDIR}/PWM_LED.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PWM_LED.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/Lab02_PWM.p1: Lab02_PWM.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/PWM_SERVO.p1: PWM_SERVO.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Lab02_PWM.p1.d 
-	@${RM} ${OBJECTDIR}/Lab02_PWM.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Lab02_PWM.p1 Lab02_PWM.c 
-	@-${MV} ${OBJECTDIR}/Lab02_PWM.d ${OBJECTDIR}/Lab02_PWM.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/Lab02_PWM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/PWM_SERVO.p1.d 
+	@${RM} ${OBJECTDIR}/PWM_SERVO.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PWM_SERVO.p1 PWM_SERVO.c 
+	@-${MV} ${OBJECTDIR}/PWM_SERVO.d ${OBJECTDIR}/PWM_SERVO.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PWM_SERVO.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/PostLabC02.p1: PostLabC02.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PostLabC02.p1.d 
+	@${RM} ${OBJECTDIR}/PostLabC02.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PostLabC02.p1 PostLabC02.c 
+	@-${MV} ${OBJECTDIR}/PostLabC02.d ${OBJECTDIR}/PostLabC02.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PostLabC02.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/PWM_LED.p1: PWM_LED.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PWM_LED.p1.d 
+	@${RM} ${OBJECTDIR}/PWM_LED.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PWM_LED.p1 PWM_LED.c 
+	@-${MV} ${OBJECTDIR}/PWM_LED.d ${OBJECTDIR}/PWM_LED.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PWM_LED.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

@@ -1,4 +1,4 @@
- /* Archivo: PostLab01.c
+ /* Archivo: PostLab02.c
  * Dispositivo: PIC16F887
  * Autor: Kevin Alarcón
  * Compilador: XC8(v2.40), MPLABX V6.05
@@ -32,30 +32,50 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <pic16f887.h>
+#include "PWM_SERVO.h"
+#include "PWM_LED.h"
 
-
-#define _tmr0_value 255 // valor de tmr0 para la interupcion 
+#define _tmr0_value 98 // valor de tmr0 para que la interrupción sea cada 20ms 
 #define _XTAL_FREQ 8000000 //definimos la frecuencia del oscilador
+#define canal 1 //Canal 2 del PWM
+#define periodo 0.02 //Periodo de 20 ms
+#define periodoTotal 20 //Tendremos un periodo de 20 ms para el led
+#define ciclo_trabajo 0.01 //Ciclo de trabajo de 10 ms
+#define LED_PIN PORTCbits.RC3 /// usar e0 como salida del led
 
 //---------------------Variables---------------------------------
-char turno;
+int i = 0;
+int dutyPot = 0;
+int periodoPot = 0;
+int potenciometro = 0;
+float potMapeado = 0;
                            //0     1      2     3     4
-const char num_display[] = {0xFC, 0x60, 0xDA, 0xFE, 0x66,
-                            0xB6, 0xBE, 0xE0, 0xFE, 0xF6};
+/*const char num_display[] = {0xFC, 0x60, 0xDA, 0xFE, 0x66,
+                            0xB6, 0xBE, 0xE0, 0xFE, 0xF6};*/
                            // 5     6     7     8     9
 
 //-------------------Prototipos de funciones------------------
 void setup(void);
+void duty_cicle(int ciclo);
 
 //----------------------Interrupciones---------------------------
 void __interrupt() isr(void) {
+    if (INTCONbits.T0IF){ //Si se activa la bandera de interrupción del TMR0
+        duty_cicle(dutyPot); //Llamaremos a nuestra función de ciclo de trabajo para el led
+        INTCONbits.T0IF = 0; //Limpiamos la bandera del TMR0
+        TMR0 = _tmr0_value; //Restablecemos el valor del TMR0
+    }
     if (PIR1bits.ADIF) { //Si se activa la bandera de interrupcion del ADC
-        if (turno == 1){ //Si está en ADC AN0
-            CCPR1L = 255;//((ADRESH >> 1) + 124); //Asignar el PORTB el valor del potenciomnetro del PORTA0
+        if (ADCON0bits.CHS == 0b0000){ //Si está en ADC AN0
+            CCPR1L = ((ADRESH >> 1) + 124); //Le cargamos al CCPR1L el valor del potenciometro que se encuentre en el canal AN0
         }
-        else if (turno == 0){ //Si está en ADC AN4
-            CCPR2L = ((ADRESH >> 1) + 124); //Asignar a la variable potenciometro el valor del potenciometro del PORTA5
+        else if (ADCON0bits.CHS == 0b0100){ //Si está en ADC AN4
+            CCPR2L = ((ADRESH >> 1) + 124); //Le cargamos al CCPR2L el valor del potenciometro que se encuentre en el canal AN4
         }
+        else if (ADCON0bits.CHS == 0b0010){//Si está en ADC AN2
+            potenciometro = ADRESH; //Asignar a la variable potenciometro el valor del potenciometro del PORTA2
+        }
+        
         PIR1bits.ADIF = 0; //Limpiar la bandera de la interrupcion del ADC
     }
     return; 
@@ -65,15 +85,21 @@ void main(void) {
     setup (); 
     ADCON0bits.GO = 1; //Activamos la lectura del ADC
     while(1){ //loop forever
+        potMapeado = (0.3921568627*potenciometro)/100; //Esta variable contendrá el valor que tenga el potenciometro en un rango (0-100) en poercentaje
+        dutyPot = (periodoTotal * potMapeado); //En el ciclo de trabajo ingrsamos el porcantaje del potenciometro multiplicado por el total del periodo 
+                                               //para que vaya incrementando/decrementando el ciclo de trabajo conforme se modifique el potenciometro
+        PORTB = dutyPot; //Presentamos el valor del ciclo de trabajo en el PUERTOB para verificar el valor del ciclo conforme se varía el potenciometro
         if (ADCON0bits.GO == 0) { // Si la lectura del ADC se desactiva
             if(ADCON0bits.CHS == 0b0000) //Revisamos si el canal esta en el AN0
             {
-                turno = 0;
                 ADCON0bits.CHS = 0b0100; //Si, sí está cambiamos el ADC al canal AN4
             }
             else if(ADCON0bits.CHS == 0b0100) //Revisamos si el canal esta en el AN4
             {
-                turno = 1;
+                ADCON0bits.CHS = 0b0010; //Si, sí está cambiamos el ADC al canal AN2
+            }
+            else if(ADCON0bits.CHS == 0b0010) //Revisamos si el canal esta en el AN2
+            {
                 ADCON0bits.CHS = 0b0000; //Si, sí está cambiamos el ADC al canal AN0
             }
             __delay_us(1000); //Este es el tiempo que se dará cada vez que se desactiva la lectura
@@ -83,10 +109,22 @@ void main(void) {
     return;
 }
 
+void duty_cicle(int ciclo){
+    i++; //Incrementamos nuestra variable comparadora
+    if (i <= ciclo){ //Si nuestra variable comparadora es menor o igual a nuestro ciclo de trabajo
+        LED_PIN = 1; //Que se mantenga encendido nuestro led
+    }
+    else{
+        LED_PIN = 0; //Sino que lo apague
+        i = 0; //Reseteamos nuestra variable comparadora
+    }
+    return;
+}
 
 void setup(void){
     //definir digitales
     ANSELbits.ANS0 = 1; //Seleccionamos solo los dos pines que utilizaremos como analógicos
+    ANSELbits.ANS2 = 1;
     ANSELbits.ANS4 = 1;
     ANSELH = 0; 
     
@@ -130,36 +168,11 @@ void setup(void){
     ADCON0bits.ADCS = 0b10; // Fosc/32
      
     ADCON1bits.ADFM = 0; //Justificado a la izquierda
-    __delay_ms(1); 
     ADCON0bits.ADON = 1;//Encendemos el módulo del ADC
+     __delay_ms(1); 
     
     //////Configuración PWM
-    TRISCbits.TRISC1 = 1; //RC1 / CCP2 como entrada
-    TRISCbits.TRISC2 = 1; //RC2 / CCP1 como entrada
-    
-    PR2 = 255; //Valor del PWM periodo
-    
-    CCP1CONbits.P1M = 0; //PWM mode una salida
-    CCP1CONbits.CCP1M = 0b1100; //Modo PWM    
-    
-    CCP2CONbits.CCP2M = 0; //PWM mode una salida
-    CCP2CONbits.CCP2M = 0b1100;  //Modo PWM  
-    
-    CCPR1L = 0x0f; //Inicio del ciclo de trabajo
-    CCPR2L = 0x0f; //Inicio del ciclo de trabajo
-    
-    CCP1CONbits.DC1B = 0; 
-    CCP2CONbits.DC2B0 = 0;
-    CCP2CONbits.DC2B1 = 0;
-    
-    PIR1bits.TMR2IF = 0; //Limpiamos la bandera del TMR2
-    T2CONbits.T2CKPS = 0b111; //prescaler 1:16
-    T2CONbits.TMR2ON = 1; //Encendemos el TMR2
-    while(PIR1bits.TMR2IF == 0); //Esperamos a que se complete un ciclo del TMR2 (hasta que la bandera del TMR2 se encienda)
-    PIR1bits.TMR2IF = 0; //Bajamos la bandera del TMR2
-    TRISCbits.TRISC1 = 0; //RC1 / CCP2 como salida
-    TRISCbits.TRISC2 = 0; //RC2 / CCP1 como salida
-    
-    turno = 1;
+    PWM_config(canal, periodo);
+    PWM_duty(canal, ciclo_trabajo); 
     return;
 }
