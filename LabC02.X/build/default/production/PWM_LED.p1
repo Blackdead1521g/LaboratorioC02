@@ -7,8 +7,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _valor_potenciometro `i ~T0 @X0 1 r1 ]
 [f ]
 "4
-[; ;PWM_LED.c: 4:     return ((0.3921568627*valor_potenciometro)/100);
-[e ) -> / * .0.3921568627 -> _valor_potenciometro `d -> -> 100 `i `d `f ]
+[; ;PWM_LED.c: 4:     return ((0.39215686f*valor_potenciometro)/100);
+[e ) / * -> .0.39215686 `f -> _valor_potenciometro `f -> -> 100 `i `f ]
 [e $UE 1  ]
 "5
 [; ;PWM_LED.c: 5: }
@@ -23,7 +23,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PotMapeado `f ~T0 @X0 1 r2 ]
 [f ]
 "8
-[; ;PWM_LED.c: 8:     return (periodo * PotMapeado);
+[; ;PWM_LED.c: 8:     return (int)(periodo * PotMapeado);
 [e ) -> * -> _periodo `f _PotMapeado `i ]
 [e $UE 2  ]
 "9

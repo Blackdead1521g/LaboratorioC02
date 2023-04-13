@@ -1,11 +1,11 @@
 #include "PWM_LED.h"
 
 float Mapeo_Pot(int valor_potenciometro){
-    return ((0.3921568627*valor_potenciometro)/100);
+    return ((0.39215686f*valor_potenciometro)/100);
 }
 
 int Duty_Pot(int periodo, float PotMapeado){
-    return (periodo * PotMapeado);
+    return (int)(periodo * PotMapeado);
 }
 
 void Duty_Cicle(int i, int ciclo, char LED_PIN){

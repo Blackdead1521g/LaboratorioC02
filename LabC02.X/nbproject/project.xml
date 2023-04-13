@@ -7,6 +7,10 @@
             <creation-uuid>4f458e1d-8a3d-45f3-93d0-9bfb827917ac</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions>h</header-extensions>
+            <asminc-extensions/>
             <make-dep-projects/>
             <sourceRootList/>
             <confList>

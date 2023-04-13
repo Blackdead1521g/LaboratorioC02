@@ -36,11 +36,11 @@
 #include "PWM_LED.h"
 
 #define _tmr0_value 98 // valor de tmr0 para que la interrupción sea cada 20ms 
-#define _XTAL_FREQ 8000000 //definimos la frecuencia del oscilador
+#define _XTAL_FREQ 4000000 //definimos la frecuencia del oscilador
 #define canal 1 //Canal 2 del PWM
-#define periodo 0.02 //Periodo de 20 ms
+#define periodo 0.004f //Periodo de 4 ms
 #define periodoTotal 20 //Tendremos un periodo de 20 ms para el led
-#define ciclo_trabajo 0.01 //Ciclo de trabajo de 10 ms
+#define ciclo_trabajo 0.0025f //Ciclo de trabajo de 1 ms
 #define LED_PIN PORTCbits.RC3 /// usar e0 como salida del led
 
 //---------------------Variables---------------------------------
@@ -67,10 +67,12 @@ void __interrupt() isr(void) {
     }
     if (PIR1bits.ADIF) { //Si se activa la bandera de interrupcion del ADC
         if (ADCON0bits.CHS == 0b0000){ //Si está en ADC AN0
-            CCPR1L = ((ADRESH >> 1) + 124); //Le cargamos al CCPR1L el valor del potenciometro que se encuentre en el canal AN0
+            PWM_duty(1, ciclo_trabajo*(ADRESH/255.0f));
+            //CCPR1L = ((ADRESH >> 1) + 124); //Le cargamos al CCPR1L el valor del potenciometro que se encuentre en el canal AN0
         }
         else if (ADCON0bits.CHS == 0b0100){ //Si está en ADC AN4
-            CCPR2L = ((ADRESH >> 1) + 124); //Le cargamos al CCPR2L el valor del potenciometro que se encuentre en el canal AN4
+            PWM_duty(2, ciclo_trabajo*(ADRESH/255.0f));
+            //CCPR2L = ((ADRESH >> 1) + 124); //Le cargamos al CCPR2L el valor del potenciometro que se encuentre en el canal AN4
         }
         else if (ADCON0bits.CHS == 0b0010){//Si está en ADC AN2
             potenciometro = ADRESH; //Asignar a la variable potenciometro el valor del potenciometro del PORTA2
@@ -85,10 +87,10 @@ void main(void) {
     setup (); 
     ADCON0bits.GO = 1; //Activamos la lectura del ADC
     while(1){ //loop forever
-        potMapeado = (0.3921568627*potenciometro)/100; //Esta variable contendrá el valor que tenga el potenciometro en un rango (0-100) en poercentaje
-        dutyPot = (periodoTotal * potMapeado); //En el ciclo de trabajo ingrsamos el porcantaje del potenciometro multiplicado por el total del periodo 
+        potMapeado = (0.39215686f*potenciometro)/100; //Esta variable contendrá el valor que tenga el potenciometro en un rango (0-100) en poercentaje
+        dutyPot = (int)(periodoTotal * potMapeado); //En el ciclo de trabajo ingrsamos el porcantaje del potenciometro multiplicado por el total del periodo 
                                                //para que vaya incrementando/decrementando el ciclo de trabajo conforme se modifique el potenciometro
-        PORTB = dutyPot; //Presentamos el valor del ciclo de trabajo en el PUERTOB para verificar el valor del ciclo conforme se varía el potenciometro
+        PORTB = (unsigned char)dutyPot; //Presentamos el valor del ciclo de trabajo en el PUERTOB para verificar el valor del ciclo conforme se varía el potenciometro
         if (ADCON0bits.GO == 0) { // Si la lectura del ADC se desactiva
             if(ADCON0bits.CHS == 0b0000) //Revisamos si el canal esta en el AN0
             {
@@ -142,7 +144,7 @@ void setup(void){
     PORTE = 0;
     
     //////////////oscilador
-    OSCCONbits.IRCF = 0b111 ; ///8Mhz
+    OSCCONbits.IRCF = 0b110 ; ///4Mhz
     OSCCONbits.SCS = 1; //Utilizar oscilados interno
     
 
@@ -155,10 +157,10 @@ void setup(void){
     TMR0 = _tmr0_value; ///VALOR INICIAL DEL TMR0
     
     /////////Banderas e interrupciones
-    INTCONbits.GIE = 1; //Habilitar interrupciones globales
+    PIR1bits.ADIF = 0; //Apagamos la bandera del ADC
     INTCONbits.PEIE = 1; //Habilitar interrupciones periféricas
     PIE1bits.ADIE = 1; //Habilitar interrupciones del ADC
-    PIR1bits.ADIF = 0; //Apagamos la bandera del ADC
+    INTCONbits.GIE = 1; //Habilitar interrupciones globales
     ADCON0bits.GO = 1; //Activamos la lectura del ADC
     
         //Configuración ADC
@@ -172,7 +174,9 @@ void setup(void){
      __delay_ms(1); 
     
     //////Configuración PWM
-    PWM_config(canal, periodo);
-    PWM_duty(canal, ciclo_trabajo); 
+    PWM_config(1, periodo);
+    PWM_config(2, periodo);
+    PWM_duty(1, ciclo_trabajo);
+    PWM_duty(2, ciclo_trabajo); 
     return;
 }

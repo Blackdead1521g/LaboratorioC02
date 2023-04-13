@@ -4,7 +4,7 @@
 # 288 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\language_support.h" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "PWM_LED.c" 2
 # 1 "./PWM_LED.h" 1
@@ -16,11 +16,11 @@ void Duty_Cicle(int i, int ciclo, char LED_PIN);
 
 
 float Mapeo_Pot(int valor_potenciometro){
-    return ((0.3921568627*valor_potenciometro)/100);
+    return ((0.39215686f*valor_potenciometro)/100);
 }
 
 int Duty_Pot(int periodo, float PotMapeado){
-    return (periodo * PotMapeado);
+    return (int)(periodo * PotMapeado);
 }
 
 void Duty_Cicle(int i, int ciclo, char LED_PIN){

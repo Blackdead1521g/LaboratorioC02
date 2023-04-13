@@ -5,33 +5,39 @@
 [d frameptr 0 ]
 "43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
+[v i1___fltol __fltol `(l  1 e 4 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
+[v i1___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
+[v i1___flmul __flmul `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+[v i1__Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+[v i1___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"62 C:\Users\Black\MPLABXProjects\LabC02.X\PostLabC02.c
+"62 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PostLabC02.c
 [v _isr isr `II(v  1 e 1 0 ]
-"84
+"86
 [v _main main `(v  1 e 1 0 ]
-"112
+"114
 [v _duty_cicle duty_cicle `(v  1 e 1 0 ]
-"124
+"126
 [v _setup setup `(v  1 e 1 0 ]
-"3 C:\Users\Black\MPLABXProjects\LabC02.X\PWM_SERVO.c
+"5 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PWM_SERVO.c
 [v _PWM_config PWM_config `(v  1 e 1 0 ]
-"30
+"34
 [v _PWM_duty PWM_duty `(v  1 e 1 0 ]
-"60 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h
+[v i1_PWM_duty PWM_duty `(v  1 e 1 0 ]
+"60 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
 "167
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -39,7 +45,7 @@
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "291
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
-[s S306 . 1 `uc 1 RC0 1 0 :1:0 
+[s S305 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -49,8 +55,8 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "308
-[u S315 . 1 `S306 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES315  1 e 1 @7 ]
+[u S314 . 1 `S305 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES314  1 e 1 @7 ]
 "353
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "415
@@ -161,7 +167,7 @@
 ]
 [u S266 . 1 `S246 1 . 1 0 `S251 1 . 1 0 `S260 1 . 1 0 `S263 1 . 1 0 ]
 [v _ADCON0bits ADCON0bits `VES266  1 e 1 @31 ]
-[s S383 . 1 `uc 1 PS 1 0 :3:0 
+[s S382 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -169,17 +175,17 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1367
-[s S390 . 1 `uc 1 PS0 1 0 :1:0 
+[s S389 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S394 . 1 `S383 1 . 1 0 `S390 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES394  1 e 1 @129 ]
+[u S393 . 1 `S382 1 . 1 0 `S389 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES393  1 e 1 @129 ]
 "1479
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1541
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-[s S22 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S23 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -189,13 +195,13 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1558
-[u S31 . 1 `S22 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES31  1 e 1 @135 ]
+[u S32 . 1 `S23 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES32  1 e 1 @135 ]
 "1603
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1665
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S409 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S408 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -204,34 +210,34 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1719
-[u S417 . 1 `S409 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES417  1 e 1 @140 ]
-[s S357 . 1 `uc 1 SCS 1 0 :1:0 
+[u S416 . 1 `S408 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES416  1 e 1 @140 ]
+[s S356 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1883
-[s S363 . 1 `uc 1 . 1 0 :4:0 
+[s S362 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S368 . 1 `S357 1 . 1 0 `S363 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES368  1 e 1 @143 ]
+[u S367 . 1 `S356 1 . 1 0 `S362 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES367  1 e 1 @143 ]
 "2042
 [v _PR2 PR2 `VEuc  1 e 1 @146 ]
-[s S428 . 1 `uc 1 . 1 0 :4:0 
+[s S427 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2992
-[u S434 . 1 `S428 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES434  1 e 1 @159 ]
-[s S327 . 1 `uc 1 ANS0 1 0 :1:0 
+[u S433 . 1 `S427 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES433  1 e 1 @159 ]
+[s S326 . 1 `uc 1 ANS0 1 0 :1:0 
 `uc 1 ANS1 1 0 :1:1 
 `uc 1 ANS2 1 0 :1:2 
 `uc 1 ANS3 1 0 :1:3 
@@ -241,11 +247,11 @@
 `uc 1 ANS7 1 0 :1:7 
 ]
 "3405
-[u S336 . 1 `S327 1 . 1 0 ]
-[v _ANSELbits ANSELbits `VES336  1 e 1 @392 ]
+[u S335 . 1 `S326 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES335  1 e 1 @392 ]
 "3450
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"47 C:\Users\Black\MPLABXProjects\LabC02.X\PostLabC02.c
+"47 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PostLabC02.c
 [v _i i `i  1 e 2 0 ]
 "48
 [v _dutyPot dutyPot `i  1 e 2 0 ]
@@ -253,36 +259,36 @@
 [v _potenciometro potenciometro `i  1 e 2 0 ]
 "51
 [v _potMapeado potMapeado `f  1 e 4 0 ]
-"84
+"86
 [v _main main `(v  1 e 1 0 ]
 {
-"110
+"112
 } 0
-"124
+"126
 [v _setup setup `(v  1 e 1 0 ]
 {
-"178
+"182
 } 0
-"30 C:\Users\Black\MPLABXProjects\LabC02.X\PWM_SERVO.c
+"34 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PWM_SERVO.c
 [v _PWM_duty PWM_duty `(v  1 e 1 0 ]
 {
 [v PWM_duty@canal canal `uc  1 a 1 wreg ]
-"31
+"35
 [v PWM_duty@particion particion `uc  1 a 1 3 ]
-"30
+"34
 [v PWM_duty@canal canal `uc  1 a 1 wreg ]
 [v PWM_duty@duty duty `f  1 p 4 76 ]
 [v PWM_duty@canal canal `uc  1 a 1 2 ]
-"43
+"47
 } 0
-"3
+"5
 [v _PWM_config PWM_config `(v  1 e 1 0 ]
 {
 [v PWM_config@canal canal `uc  1 a 1 wreg ]
 [v PWM_config@canal canal `uc  1 a 1 wreg ]
 [v PWM_config@periodo_ms periodo_ms `f  1 p 4 76 ]
 [v PWM_config@canal canal `uc  1 a 1 0 ]
-"29
+"33
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
@@ -332,17 +338,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S808 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S806 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S813 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S816 . 4 `l 1 i 4 0 `d 1 f 4 0 `S808 1 fAsBytes 4 0 `S813 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S816  1 a 4 34 ]
+[s S811 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S814 . 4 `l 1 i 4 0 `d 1 f 4 0 `S806 1 fAsBytes 4 0 `S811 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S814  1 a 4 34 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 28 ]
-[s S885 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S883 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S888 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S885 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S888  1 a 2 38 ]
+[u S886 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S883 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S886  1 a 2 38 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 33 ]
 "11
@@ -368,14 +374,110 @@
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
 "60
 } 0
-"62 C:\Users\Black\MPLABXProjects\LabC02.X\PostLabC02.c
+"62 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PostLabC02.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"82
+"84
 } 0
-"112
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
+[v i1___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v i1___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v i1___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v i1___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v i1___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v i1___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v i1___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
+[v i1___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S806 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S811 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S814 . 4 `l 1 i 4 0 `d 1 f 4 0 `S806 1 fAsBytes 4 0 `S811 1 fAsWords 4 0 ]
+[v i1___flmul@prod prod `S814  1 a 4 46 ]
+"12
+[v i1___flmul@grs grs `ul  1 a 4 40 ]
+[s S883 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S886 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S883 1 nAsBytes 2 0 ]
+[v i1___flmul@temp temp `S886  1 a 2 50 ]
+"10
+[v i1___flmul@bexp bexp `uc  1 a 1 45 ]
+"11
+[v i1___flmul@aexp aexp `uc  1 a 1 44 ]
+"9
+[v i1___flmul@sign sign `uc  1 a 1 39 ]
+"8
+[v i1___flmul@b b `d  1 p 4 26 ]
+[v i1___flmul@a a `d  1 p 4 30 ]
+"205
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
+[v i1__Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v i1__Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v i1__Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
+"5
+[v i1__Umul8_16@product product `ui  1 a 2 4 ]
+"4
+[v i1__Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+[v i1__Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v i1__Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
+"60
+} 0
+"34 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PWM_SERVO.c
+[v i1_PWM_duty PWM_duty `(v  1 e 1 0 ]
+{
+[v i1PWM_duty@canal canal `uc  1 a 1 wreg ]
+"35
+[v i1PWM_duty@particion particion `uc  1 a 1 59 ]
+"34
+[v i1PWM_duty@canal canal `uc  1 a 1 wreg ]
+[v i1PWM_duty@duty duty `f  1 p 4 52 ]
+[v i1PWM_duty@canal canal `uc  1 a 1 58 ]
+"47
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
+[v i1___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v i1___fltol@exp1 exp1 `uc  1 a 1 35 ]
+[v i1___fltol@sign1 sign1 `uc  1 a 1 34 ]
+"43
+[v i1___fltol@f1 f1 `d  1 p 4 26 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
+[v i1___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v i1___fldiv@grs grs `ul  1 a 4 20 ]
+"22
+[v i1___fldiv@rem rem `ul  1 a 4 13 ]
+"20
+[v i1___fldiv@new_exp new_exp `i  1 a 2 18 ]
+"19
+[v i1___fldiv@aexp aexp `uc  1 a 1 25 ]
+"18
+[v i1___fldiv@bexp bexp `uc  1 a 1 24 ]
+"16
+[v i1___fldiv@sign sign `uc  1 a 1 17 ]
+"8
+[v i1___fldiv@a a `d  1 p 4 0 ]
+[v i1___fldiv@b b `d  1 p 4 4 ]
+"185
+} 0
+"114 D:\UVG\Digital_01\repositorio\Privado\LaboratorioC02\LabC02.X\PostLabC02.c
 [v _duty_cicle duty_cicle `(v  1 e 1 0 ]
 {
 [v duty_cicle@ciclo ciclo `i  1 p 2 0 ]
-"122
+"124
 } 0
