@@ -1,6 +1,6 @@
 #include "PWM_SERVO.h"
 #ifndef _XTAL_FREQ
-#define _XTAL_FREQ 4000000
+#define _XTAL_FREQ 4000000 
 #endif
 void PWM_config(char canal, float periodo_ms){
     PR2 = (char) (periodo_ms/(4*(1.0f/_XTAL_FREQ)*16));   //mejor usar la constante_Xtal_freq 
